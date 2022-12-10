@@ -70,13 +70,27 @@ window.addEventListener('click', function(event){
 const menuMobileWrapper = document.querySelector('.menu-icon-wrapper');
 const menuMobile = document.querySelector('.menu-icon');
 const menuMobileItems = document.querySelector('.menu__top__wrapper'); 
-const body = document.querySelector('body'); 
+const body = document.querySelector('body');
+const menuLinkList = document.querySelector('.menu__top__wrapper').querySelectorAll('a')
 
-menuMobileWrapper.onclick = function(){
+function menuToggle(){
 	menuMobile.classList.toggle('menu-icon-active');
 	menuMobileItems.classList.toggle('menu__top__wrapper-mobile-active');
 	body.classList.toggle('no-scroll');
 }
+
+menuMobileWrapper.onclick = function(){
+	
+	menuToggle()
+
+}	
+
+menuLinkList.forEach(link => {
+	
+	link.addEventListener('click', function(){
+		menuToggle()
+	})
+})
 
 //  FOOTER SPOILER      =================================
 
